@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>  
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola Parque do Saber</title>    
+    <link rel="stylesheet" href="css/landingpage.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Link para o CDN do Font Awesome (biblioteca de ícones) -->
+</head>
+
+<body>    
+
+    <header>
+        <!-- Cabeçalho da página -->        
+        <img src="img/logo.jpg" alt="Logo da Escola" class="logo">
+        <!-- Imagem do logo da escola -->        
+        <nav class="cabecalho">
+            <!-- Área de navegação principal -->            
+            <a href="#sobre" class="cabecalho-info">Sobre</a>
+            <!-- Link para a seção "Sobre" -->           
+            <a href="#cursos" class="cabecalho-info">Cursos</a>
+            <!-- Link para a seção "Cursos" -->                       
+            <a href="#matriculas" class="cabecalho-info">Matrículas</a>
+            <!-- Botão especial para matrículas -->            
+            <a href="#contato" class="cabecalho-info">Fale Conosco</a>
+            <!-- Botão especial para contato -->
+            
+            
+             <div class="dropdown">
+                <a href="#login" class="portal-login">Acesse o portal</a>
+                <div class="dropdown-opções">
+                    <a class="portais" href="login.html">Portal do Aluno</a><br>
+                    <a class="portais" href="login.html">Portal do Professor</a>
+                </div>
+            </div>
+            
+            <!-- Botão especial para login -->  
+        </nav>
+    </header>
+
+    <section class="carrosel">
+        <!-- Seção do carrossel de imagens -->        
+        <div class="carrosel-auto">
+            <!-- Container que envolve os slides -->            
+            <img src="img/faixada.jpg" class="carros active">
+            <!-- Primeiro slide (ativo por padrão) - imagem da fachada -->            
+            <img src="img/alunos.jpg" class="carros">
+            <!-- Segundo slide - imagem de alunos -->            
+            <img src="img/parque.jpg" class="carros">
+            <!-- Terceiro slide - imagem do parque -->
+        </div>
+        
+        <div class="dots">
+            <!-- Indicadores de posição do carrossel (pontinhos) -->            
+            <span class="dot active"></span>
+            <!-- Ponto ativo (primeiro slide) -->            
+            <span class="dot"></span>
+            <!-- Ponto para segundo slide -->            
+            <span class="dot"></span>
+            <!-- Ponto para terceiro slide -->
+        </div>
+    </section>
+
+    <div class="teste">
+        <!-- Container para centralizar o título -->
+        <h2 class="titulo">Nossa <span>Galeria.</span></h2>
+        <!-- Título da seção com parte do texto em destaque -->
+    </div>
+    
+    <section class="galeria">
+        <!-- Seção de cards/galeria -->        
+        <a href="">
+            <!-- Link para página de eventos (vazio por enquanto) -->
+            <div class="cards" style="background-image: url(img/test.jpg);">
+                <!-- Card com imagem de fundo -->
+                <div class="overlay">Nossos eventos</div>
+                <!-- Texto que aparece ao passar o mouse -->
+            </div>
+        </a>
+        
+        <a href="">
+            <!-- Link para página da escola (vazio por enquanto) -->
+            <div class="cards" style="background-image: url(img/faixada.jpg);">
+                <!-- Card com imagem de fundo -->
+                <div class="overlay">Nossa Escola</div>
+                <!-- Texto que aparece ao passar o mouse -->
+            </div>
+        </a>
+    </section>
+
+    <div class="informacoes">
+        <!-- Container para as seções de conteúdo -->        
+        <section id="sobre" class="card-info">
+            <!-- Seção "Sobre Nós" -->
+            <h2 class="titulo-cards"> Sobre Nós</h2>
+            <!-- Título da seção -->
+            <p>A Escola Parque do Saber é uma instituição dedicada à excelência na educação...</p>
+            <!-- Texto descritivo -->
+        </section>
+    
+        <section id="cursos" class="card-info">
+            <!-- Seção "Cursos" -->
+            <h2 class="titulo-cards">Nossos Cursos</h2>
+            <!-- Título da seção -->
+            <p>Oferecemos uma variedade de cursos para atender às necessidades dos alunos...</p>
+            <!-- Texto descritivo -->
+        </section>
+    
+        <section id="matriculas" class="card-info">
+            <!-- Seção "Matrículas" -->
+            <h2 class="titulo-cards">Matrículas 2025</h2>
+            <!-- Título da seção -->
+            <p>Garanta já a vaga do seu filho para o ano letivo de 2025!</p>
+            <!-- Texto descritivo -->
+            <a href="https://wa.me/5575991107666" class="btn-matricula">
+                <!-- Botão de matrícula -->
+                <i class="fa-brands fa-whatsapp" ></i> Inscreva-se
+                <!-- Ícone do WhatsApp + texto -->
+            </a>
+        </section>
+    </div>
+    
+    <!-- Seção Contato -->
+    <section id="contato" class="contato-form">
+        <!-- Seção de formulário de contato -->
+        <h2>Fale Conosco</h2>
+        <!-- Título da seção -->
+        <p>Estamos aqui para ajudar! Entre em contato conosco para tirar dúvidas, agendar visitas ou obter mais informações.</p>
+        <!-- Texto descritivo -->
+                
+        <form id="contactForm" >            
+            <div class="form-group">
+                <!-- Grupo de campos do formulário -->
+                <div class="caixa-pergunta">
+                    <!-- Grupo de input para nome -->
+                    <label for="name">Nome completo</label>
+                    <!-- Rótulo do campo -->
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+                    <!-- Campo de entrada de texto -->
+                </div>
+                
+                <div class="caixa-pergunta">
+                    <!-- Grupo de input para email -->
+                    <label for="email">Email</label>
+                    <!-- Rótulo do campo -->
+                    <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                    <!-- Campo de entrada de email -->
+                </div>
+            </div>
+            
+            <div class="caixa-pergunta">
+                <!-- Grupo de input para mensagem -->
+                <label for="message">Mensagem</label>
+                <!-- Rótulo do campo -->
+                <textarea id="message" name="message" placeholder="Escreva sua mensagem..." rows="6" required></textarea>
+                <!-- Área de texto para mensagem -->
+            </div>
+            
+            <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+            <!-- Botão de envio do formulário -->
+        </form>
+    </section>
+
+    <div class="map-google">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.603072107399!2d-38.94188172534913!3d-12.20738918804218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7143906c1f14dfd%3A0xed01c9921fdee2b9!2sEscola%20Parque%20Do%20Saber!5e0!3m2!1spt-BR!2sbr!4v1747055144157!5m2!1spt-BR!2sbr" width="1000" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <footer>
+        <!-- Rodapé da página -->
+        
+        <div class="footer-content">
+            <!-- Conteúdo principal do rodapé -->
+            
+            <div class="footer-section">
+                <!-- Seção de endereço -->
+                <h3>Endereço</h3>
+                <p>Rua cardeal, 98</p>
+                <p>Papagaio</p>
+                <p>Feira de Santana, BA</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p>Email: <a href="escolaparquedosaber3221@gmail.com">escolaparquedosaber3221@gmail.com</a></p>
+                <p>Telefone: (75) 99110-7666</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom"> 
+            <p>&copy; 2025 Escola Parque do Saber - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scripts JavaScript para funcionalidades da página
+        
+        // Carrossel automático
+        let slideIndex = 0; // Variável para controlar o slide atual
+        showSlides(); // Chama a função para iniciar o carrossel
+
+        function showSlides() {
+            // Função que controla a exibição dos slides
+            const slides = document.querySelectorAll('.carros'); // Seleciona todos os slides
+            const dots = document.querySelectorAll('.dot'); // Seleciona todos os pontos indicadores
+            
+            // Esconde todos os slides
+            slides.forEach(slide => slide.style.display = "none");
+            
+            // Remove a classe 'active' de todos os pontos
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Verifica se chegou no último slide e volta para o primeiro
+            slideIndex = (slideIndex >= slides.length) ? 0 : slideIndex;
+            
+            // Mostra o slide atual e ativa seu ponto correspondente
+            slides[slideIndex].style.display = "block";
+            dots[slideIndex].classList.add('active');
+            
+            // Incrementa o índice e agenda a próxima transição
+            slideIndex++;
+            setTimeout(showSlides, 5000); // Muda de slide a cada 5 segundos
+        }
+
+        // Navegação por dots (pontos indicadores)
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            // Adiciona evento de clique para cada ponto
+            dot.addEventListener('click', () => {
+                // Quando clicado, define o slideIndex para o índice do ponto
+                slideIndex = index;
+                // Chama a função para mostrar o slide correspondente
+                showSlides();
+            });
+        });
+    </script>
+</body>
+</html>

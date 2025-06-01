@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal do Estudante</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Botão de menu -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <ul>
+        <h2>Portal</h2>
+        <li><a href="index.html">🏠 Página Inicial</a></li>
+        <li><a href="pages/notas.html">📝 Notas</a></li>
+        <li><a href="pages/horario.html">📅 Horário</a></li>
+        <li><a href="pages/perfil.html">👤 Perfil</a></li>
+        <li><a href="login.html">🚪 Sair</a></li>
+      </ul>
+    </nav>
+    <main class="dashboard">
+      <h1>Bem-vindo(a) ao Portal do Estudante!</h1>
+      <div class="cards">
+        <a href="pages/notas.html" class="card">📄 Ver Notas</a>
+        <a href="pages/horario.html" class="card">📆 Ver Horário</a>
+        <a href="pages/perfil.html" class="card">👤 Meu Perfil</a>
+        <a href="#" class="card">📊 Estatísticas (opcional)</a>
+      </div>
+    </main>
+  </div>
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
