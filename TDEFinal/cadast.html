@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/cadast.css" />
     <title>Cadastro</title>
   </head>
-  <body>    
+  <body>
     <div class="container">
       <div class="card">
         <h1>Cadastrar</h1>
@@ -20,15 +20,10 @@
         <div id="msgSuccess"></div>
 
         <div class="label-float">
-          <input type="text" id="nome" placeholder=" " required />
-          <label id="labelNome" for="nome">Nome</label>
+          <input type="text" id="usuario" placeholder=" " required />
+          <label id="labelUsuario" for="usuario">Usuário</label>
         </div>
 
-        <div class="label-float">
-          <input type="text" id="usuario" placeholder=" " required />
-          <label id="labelUsuario" for="CPF">CPF</label>
-        </div>
-        
         <div class="label-float">
           <input type="password" id="senha" placeholder=" " required />
           <label id="labelSenha" for="senha">Senha</label>
@@ -41,36 +36,84 @@
           <i id="verConfirmSenha" class="fa fa-eye" aria-hidden="true"></i>
         </div>
 
+        <div class="label-float">
+          <select id="tipoUsuario" required>
+            <option value="" disabled selected hidden></option>
+            <option value="aluno">Aluno</option>
+            <option value="professor">Professor</option>
+          </select>
+          <label for="tipoUsuario">Tipo de Usuário</label>
+        </div>
+
         <div class="justify-center">
           <button onclick="cadastrar()">Cadastrar</button>
         </div>
         <hr />
-        <p>Já tem conta? <a href="login.html">Entrar</a></p>
+        <p>Já tem conta? <a href="tela-aluno.html">Entrar</a></p>
       </div>
     </div>
+
     <script>
-      let btn = document.querySelector('#verSenha')
-      let btnConfirm = document.querySelector('#verConfirmSenha')
+      let btn = document.querySelector('#verSenha');
+      let btnConfirm = document.querySelector('#verConfirmSenha');
 
       btn.addEventListener('click', () => {
-        let inputSenha = document.querySelector('#senha')
-
-        if (inputSenha.getAttribute('type') == 'password') {
-          inputSenha.setAttribute('type', 'text')
-        } else {
-          inputSenha.setAttribute('type', 'password')
-        }
-      })
+        let inputSenha = document.querySelector('#senha');
+        inputSenha.type = inputSenha.type === 'password' ? 'text' : 'password';
+      });
 
       btnConfirm.addEventListener('click', () => {
-        let inputConfirm = document.querySelector('#confirmSenha')
+        let inputConfirm = document.querySelector('#confirmSenha');
+        inputConfirm.type = inputConfirm.type === 'password' ? 'text' : 'password';
+      });
 
-        if (inputConfirm.getAttribute('type') == 'password') {
-          inputConfirm.setAttribute('type', 'text')
-        } else {
-          inputConfirm.setAttribute('type', 'password')
+      function showError(message) {
+        const msgError = document.getElementById('msgError');
+        const msgSuccess = document.getElementById('msgSuccess');
+        msgError.style.display = 'block';
+        msgError.innerText = message;
+        msgSuccess.style.display = 'none';
+      }
+
+      function showSuccess(message) {
+        const msgError = document.getElementById('msgError');
+        const msgSuccess = document.getElementById('msgSuccess');
+        msgSuccess.style.display = 'block';
+        msgSuccess.innerText = message;
+        msgError.style.display = 'none';
+      }
+
+      function cadastrar() {
+        const usuario = document.getElementById('usuario').value.trim();
+        const senha = document.getElementById('senha').value.trim();
+        const confirmSenha = document.getElementById('confirmSenha').value.trim();
+        const tipoUsuario = document.getElementById('tipoUsuario').value;
+
+        if (!usuario || !senha || !confirmSenha || !tipoUsuario) {
+          showError('Por favor, preencha todos os campos.');
+          return;
         }
-      })
-  </script>
+        if (senha !== confirmSenha) {
+          showError('As senhas não coincidem.');
+          return;
+        }
+
+        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+        const usuarioExistente = usuarios.find(u => u.usuario.toLowerCase() === usuario.toLowerCase());
+
+        if (usuarioExistente) {
+          showError('Usuário já registrado. Use outro nome.');
+          return;
+        }
+
+        usuarios.push({ usuario, senha, tipoUsuario });
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+        showSuccess('Cadastrado com sucesso! Redirecionando para login...');
+
+        setTimeout(() => {
+          window.location.href = tipoUsuario === 'aluno' ? 'tela-aluno.html' : 'tela-aluno.html';
+        }, 2000);
+      }
+    </script>
   </body>
 </html>

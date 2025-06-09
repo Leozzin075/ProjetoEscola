@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/tela-alu.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Login</h1>
+
+        <div id="msgError" style="color: red; text-align: center; margin-bottom: 10px;"></div>
+
+        <div class="label-float">
+          <input type="text" id="usuario" placeholder="" required />
+          <label id="userLabel" for="usuario">Usuário</label>
+        </div>
+
+        <div class="label-float">
+          <input type="password" id="senha" placeholder="" required />
+          <label id="senhaLabel" for="senha">Senha</label>
+          <i class="fa fa-eye" aria-hidden="true" style="color:#122ccf; position:absolute; top: 15px; right: 10px; cursor:pointer;"></i>
+        </div>
+
+        <div class="justify-center">
+          <button onclick="entrar()">Entrar</button>
+        </div>
+
+        <div class="justify-center">
+          <hr />
+        </div>
+
+        <p>Não tem conta? <a href="cadast.html">Cadastrar-se</a></p>
+      </div>
+    </div>
+
+    <script>
+      const btn = document.querySelector('.fa-eye');
+      btn.addEventListener('click', () => {
+        const inputSenha = document.querySelector('#senha');
+        inputSenha.type = inputSenha.type === 'password' ? 'text' : 'password';
+      });
+
+      function entrar() {
+        const usuario = document.getElementById('usuario').value.trim();
+        const senha = document.getElementById('senha').value.trim();
+        const msgError = document.getElementById('msgError');
+
+        const users = JSON.parse(localStorage.getItem('usuarios')) || [];
+        const userFound = users.find(user => user.usuario === usuario && user.senha === senha);
+
+        if (userFound) {
+          localStorage.setItem('usuarioLogado', JSON.stringify(userFound));
+
+          if (userFound.tipoUsuario === 'aluno') {
+            window.location.href = 'portalAluno.html';
+          } else {
+            window.location.href = 'tela-professor.html';
+          }
+        } else {
+          msgError.innerText = 'Usuário ou senha inválidos';
+        }
+      }
+    </script>
+  </body>
+</html>

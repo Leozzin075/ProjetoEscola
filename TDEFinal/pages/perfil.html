@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil</title>
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+  <div class="container">
+    <button class="menu-toggle" onclick="history.back()">← Voltar</button>
+    <main class="dashboard">
+      <h1>Meu Perfil</h1>
+      <div style="background: white; padding: 20px; border-radius: 8px; max-width: 400px;">
+        <p><strong>Usuário:</strong> <span id="nome"></span></p>
+        <p><strong>Tipo:</strong> <span id="tipo"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    window.onload = function() {
+      const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+      if (!usuarioLogado) {
+        window.location.href = '../tela-aluno.html';
+        return;
+      }
+
+      document.getElementById('nome').innerText = usuarioLogado.usuario;
+      document.getElementById('tipo').innerText = usuarioLogado.tipoUsuario === 'aluno' ? 'Aluno' : 'Professor';
+      document.getElementById('email').innerText = usuarioLogado.email || 'Não informado';
+    }
+  </script>
+</body>
+</html>
