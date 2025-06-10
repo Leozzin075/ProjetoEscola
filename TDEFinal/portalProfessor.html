@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Portal do Professor</title>
+  <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Botão do menu -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <ul>
+        <h2>Professor</h2>
+        <li><a href="index.html">🏠 Página Inicial</a></li>
+        <li><a href="professor/notas.html">📊 Lançar Notas</a></li>
+        <li><a href="professor/horario.html">🗓️ Gerenciar Horário</a></li>
+        <li><a href="professor/perfil.html">👤 Meu Perfil</a></li>
+        <li><a href="tela-aluno.html">🚪 Sair</a></li>
+      </ul>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="dashboard">
+      <h1>Bem-vindo(a) ao Portal do Professor!</h1>
+      <div class="cards">
+        <a href="professor/notas.html" class="card">📊 Lançar Notas</a>
+        <a href="professor/horario.html" class="card">🗓️ Gerenciar Horário</a>
+        <a href="professor/perfil.html" class="card">👤 Meu Perfil</a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
